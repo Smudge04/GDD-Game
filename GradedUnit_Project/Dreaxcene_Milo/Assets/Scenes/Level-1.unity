@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 54833514}
   - component: {fileID: 54833513}
   - component: {fileID: 54833512}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -406,7 +406,7 @@ GameObject:
   - component: {fileID: 566365376}
   - component: {fileID: 566365378}
   - component: {fileID: 566365377}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -444,9 +444,11 @@ MonoBehaviour:
   OffSet: -90
   ShotPos: {fileID: 851025998}
   Bullet: {fileID: 1279421714059428322, guid: 030b1b45aa2d02144b508e41ad7f2b1f, type: 3}
-  BulletAmount: 3
-  Spread: 0.2
-  BulletSpeed: 5
+  BulletAmount: 1
+  Spread: 0
+  BulletSpeed: 11
+  FireRate: 1
+  FiringInterval: 0
 --- !u!212 &566365378
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -720,7 +722,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 851025998}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ShotPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}

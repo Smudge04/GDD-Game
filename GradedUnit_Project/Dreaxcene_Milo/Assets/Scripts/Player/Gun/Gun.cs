@@ -9,27 +9,25 @@ public class Gun : MonoBehaviour
     public GameObject Bullet;
     public int BulletAmount;
     public float Spread, BulletSpeed;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    public float FireRate; //variable for fire rate
+    public float FiringInterval; //Variable for interval between shots
+
+    void Update() //JM - created basic gun script
     {
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position; 
         float angle = Mathf.Atan2(mousePos.y, mousePos.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.AngleAxis(angle + OffSet, Vector3.forward);
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetButton("Fire1") && (Time.time > FiringInterval)) //If player presses fire and time is greater than the firing interval
         {
-            Shoot();
+            Shoot(); //Begin shoot function
+            FiringInterval = Time.time + FireRate; //Firing interval is equal to time plus fire rate
         }
     }
 
     void Shoot()
     {
-        for (int i = 0; i < BulletAmount; i++)
+        for (int i = 0; i < BulletAmount; i++) 
         {
             GameObject b = Instantiate(Bullet, ShotPos.position,ShotPos.rotation);
             Rigidbody2D brb = b.GetComponent<Rigidbody2D>();
