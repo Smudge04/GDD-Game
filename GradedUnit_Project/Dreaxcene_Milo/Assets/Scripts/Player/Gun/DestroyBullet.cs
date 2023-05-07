@@ -15,7 +15,6 @@ public class DestroyBullet : MonoBehaviour
         Destroy(this.gameObject);
     }
 
-
     void OnCollisionEnter2D(Collision2D collision)
     {
         Destroy(gameObject); //If the bullet collides with anything before the 3 seconds it destroys the game object

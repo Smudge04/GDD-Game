@@ -3,13 +3,20 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public static PlayerMovement instance; //NS lines 7-60
+    public static PlayerMovement instance; //NS all code for player movement
 
-    public float moveSpeed = 5f; //Sets player movespeed
+    public float moveSpeed; //Sets player movespeed
+    private float SavedSpeed; //Returns player to original speed
 
     public Rigidbody2D rb; //Variable to store player rigidbody
 
     Vector2 movement; //Movement Vector
+
+    public GameObject TopRightLimitGameObject; //Variable to store the game object for the border of the screen (top right)
+    public GameObject BottomLeftLimitGameObject; //Variable to store the game object for the border of the screen (Bottom Left)
+
+    private Vector3 TopRightLimit; //Variable to store the position of the Top right limit
+    private Vector3 BottomLeftLimit; //Variable to store the position of the Bottom Left Limit
 
     [Header("Dashing")]
     public bool canDash = true; //Variable to check if player can dash
@@ -22,10 +29,28 @@ public class PlayerMovement : MonoBehaviour
         instance = this; //Creates and instance of the script
     }
 
+    private void Start()
+    {
+        TopRightLimit = TopRightLimitGameObject.transform.position; //Stores game object position into variable
+        BottomLeftLimit = BottomLeftLimitGameObject.transform.position; //Stores game object position into variable
+
+        SavedSpeed = moveSpeed;
+    }
+
     void Update()
     {
         movement.x = Input.GetAxisRaw("Horizontal"); //Gets player input for horizontal movement 
         movement.y = Input.GetAxisRaw("Vertical"); //Gets player input for vertical movement       
+
+        if ((transform.position.x <= BottomLeftLimit.x && movement.x == -1) || (transform.position.x >= TopRightLimit.x && movement.x == 1)) //checks if player is in confines of horizontal limit
+        {
+            movement.x = 0; //if not then stop player movement horizontally
+        }
+
+        if ((transform.position.y <= BottomLeftLimit.y && movement.y == -1) || (transform.position.y >= TopRightLimit.y && movement.y == 1)) //checks if player is in confines of Veritcal limit
+        {
+            movement.y = 0; //if not then stop player movement Vertically
+        }
 
         if (Input.GetKeyDown(KeyCode.Mouse1)) //If player right clicks
         {
@@ -54,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
         moveSpeed = dashSpeed; //Move speed is increased to the number set within dash speed variable
 
         yield return new WaitForSeconds(dashingTime); //Waits for length of dash
-        moveSpeed = 5; //Returns move speed to original speed
+        moveSpeed = SavedSpeed; //Returns move speed to original speed
         yield return new WaitForSeconds(TimeBtwDash); //Waits for length of time between dash
         canDash = true; //Player can now dash again
     }
