@@ -35,5 +35,6 @@ public class Gun : MonoBehaviour
             Vector2 pdir = Vector2.Perpendicular(dir) * Random.Range(- Spread, Spread);
             brb.velocity = (dir + pdir) * BulletSpeed;
         }
+
     }
 }

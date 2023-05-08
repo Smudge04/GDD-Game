@@ -12,6 +12,14 @@ public class Health : MonoBehaviour //ns all code
     public Sprite FullHeart; //stores the sprite for a full heart
     public Sprite emptyHeart; //stores the sprite for the empty heart
 
+    private bool Hit = true; //Bool to check if player can be hit
+    private Animator anim; //variable for player animation
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>(); //Gets animator component
+    }
+   
     private void Update()
     {
         if(health > numOfHearts) //if loop to check if players health is greater than the number of hearts
@@ -39,5 +47,39 @@ public class Health : MonoBehaviour //ns all code
                 hearts[i].enabled = false;
             }
         }
+
+        if(health <= 0) //if player is dead
+        {
+            Debug.Log("Player Dead"); 
+            PlayerDeath(); //start death function
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (Hit) //if player has not been hit then
+        {
+            if (other.tag == "Enemy") //If player collides with enemy
+            {
+                StartCoroutine(HitBoxOff()); //Turns off player hitbox
+                health--; //remove 1 from health
+            }
+        }
+    }
+
+    IEnumerator HitBoxOff() //Function to turn off players hit box
+    {
+        if(health > 1) //if player health greater than 1
+        {
+            Hit = false; //Bool set to false so player can't be hit
+            anim.SetTrigger("Hit"); //Plays animation to let player know they can't be hit
+            yield return new WaitForSeconds(1f); //the player has 1.6 seconds they cant be hit
+            Hit = true; //hit = true
+        }
+    }
+
+    private void PlayerDeath() //death function
+    {
+        this.gameObject.SetActive(false); //set game object to false
     }
 }

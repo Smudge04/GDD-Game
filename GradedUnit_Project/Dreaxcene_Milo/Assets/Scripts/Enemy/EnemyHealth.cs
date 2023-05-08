@@ -5,25 +5,23 @@ using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
-    [SerializeField] //allows for each enemy to have a different health
-    private float health; //Variable to store enemy health
+    [SerializeField] private float health, maxHealth; //Variable to store enemy health, allows for each enemy to have a different health
 
-    private void Update()
+    private void FixedUpdate() //NS
     {
 
-        if (health < 1) //If enemy dies
+        if (health <= 0) //If enemy dies
         {
             Destroy(gameObject); //Destroy this object
         }
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+    public void TakeDamage(int Damage)
     {
-        if (other.tag == "Bullet") //If enemy collides with bullet
-        {
-            health--; //remove 1 from health
-            Destroy(other.gameObject); //destroy bullet game object
-        }
+        health -= Damage; //Take damage equal to bullet damage
+        Debug.Log(health); //shows enemy health on debug log
     }
+
+
 }
 
