@@ -26,7 +26,7 @@ public class EnemyMovement : MonoBehaviour
             transform.position = Vector2.MoveTowards(transform.position, playerPos.position, speed * Time.deltaTime);
 
         Vector2 targetPos = playerPos.transform.position; //Enemy will target the position of the player
-        PlayerDir = targetPos - (Vector2)transform.position; //Enemy will look towards player
+       
         transform.up = PlayerDir;
 
     }
