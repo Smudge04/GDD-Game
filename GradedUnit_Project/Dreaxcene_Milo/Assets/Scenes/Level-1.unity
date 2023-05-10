@@ -2093,7 +2093,7 @@ MonoBehaviour:
   BulletAmount: 1
   Spread: 0
   BulletSpeed: 11
-  FireRate: 0.2
+  FireRate: 1
   FiringInterval: 0
 --- !u!212 &566365378
 SpriteRenderer:
