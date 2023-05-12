@@ -15,6 +15,9 @@ public class Health : MonoBehaviour //ns all code
     private bool Hit = true; //Bool to check if player can be hit
     private Animator anim; //variable for player animation
 
+    public GameObject PlayerDeathParticle;
+
+
     private void Start()
     {
         anim = GetComponent<Animator>(); //Gets animator component
@@ -50,8 +53,7 @@ public class Health : MonoBehaviour //ns all code
 
         if(health <= 0) //if player is dead
         {
-            Debug.Log("Player Dead"); 
-            PlayerDeath(); //start death function
+            StartCoroutine(PlayerDeath()); //start death Coroutine
         }
     }
 
@@ -78,8 +80,14 @@ public class Health : MonoBehaviour //ns all code
         }
     }
 
-    private void PlayerDeath() //death function
+    IEnumerator PlayerDeath()
     {
-        this.gameObject.SetActive(false); //set game object to false
+        PlayerMovement.instance.enabled = false; //stop player movement script
+        //Stop Gun Script
+        EnemyHealth.instance.DespawnEnemies();
+        yield return new WaitForSeconds(1); //wait 1 second
+        gameObject.SetActive(false);
+        Instantiate(PlayerDeathParticle, new Vector2(transform.position.x, transform.position.y), Quaternion.identity); //play particle effect
+        //Game over
     }
 }

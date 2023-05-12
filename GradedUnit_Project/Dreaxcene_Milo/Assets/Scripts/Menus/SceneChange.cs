@@ -6,8 +6,15 @@ using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class MainMenu : MonoBehaviour
+public class SceneChange : MonoBehaviour
 {
+    public static SceneChange instance;
+
+    private void Start()
+    {
+        instance = this;    
+    }
+
     public void PlayGame()//the PlayGame function tied to the play game button
     {
         SceneManager.LoadScene("Level-1");//loads the Level-1 game scene
@@ -17,5 +24,10 @@ public class MainMenu : MonoBehaviour
     {
         Application.Quit();// terminates the game
         Debug.Log("Quit");//
+    }
+
+    public void GameOver()
+    {
+        SceneManager.LoadScene("GameOver");
     }
 }

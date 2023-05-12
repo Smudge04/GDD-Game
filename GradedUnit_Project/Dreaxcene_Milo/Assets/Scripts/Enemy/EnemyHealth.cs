@@ -9,10 +9,15 @@ public class EnemyHealth : MonoBehaviour //NS
 
     [SerializeField] FloatingHealthBar healthBar;
 
+    public static EnemyHealth instance;
+
+
     private void Start()
     {
         health = maxHealth;
         healthBar.UpdateHealthBar(health, maxHealth);
+
+        instance = this;
     }
 
     private void Awake()
@@ -32,6 +37,9 @@ public class EnemyHealth : MonoBehaviour //NS
         }
     }
 
-
+    public void DespawnEnemies()
+    {
+        this.gameObject.SetActive(false);
+    }
 }
 

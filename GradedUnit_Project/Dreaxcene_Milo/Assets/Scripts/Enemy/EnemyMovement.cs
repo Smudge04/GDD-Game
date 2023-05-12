@@ -8,6 +8,7 @@ public class EnemyMovement : MonoBehaviour
     public float speed; // Variable for speed
 
     private Transform playerPos; //variable that stores where the player is
+
     Vector2 PlayerDir; //Variable that the direction the player is in for the enemy to follow
     private Rigidbody2D rb; //A vriable that stores enemy RigidBody when enemy is spawned
 
