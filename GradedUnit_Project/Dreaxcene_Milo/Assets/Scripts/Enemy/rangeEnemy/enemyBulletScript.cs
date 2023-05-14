@@ -17,7 +17,7 @@ public class enemyBulletScript : MonoBehaviour
         Player = GameObject.FindGameObjectWithTag("Player");
 
         Vector3 direction = Player.transform.position - transform.position;//this will create a direction towards the player
-        rb.velocity = new Vector2(direction.x,direction.y).normalized * force;
+        rb.velocity = new Vector2(direction.x,direction.y).normalized * force;//shot will travel towards the player
 
         float rot = Mathf.Atan2(-direction.y,-direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, rot + 90);
