@@ -12,6 +12,8 @@ public class PlayerMovement : MonoBehaviour
 
     Vector2 movement; //Movement Vector
 
+    public Animator animator;//Varible to store the animator - JM
+
     public GameObject TopRightLimitGameObject; //Variable to store the game object for the border of the screen (top right)
     public GameObject BottomLeftLimitGameObject; //Variable to store the game object for the border of the screen (Bottom Left)
 
@@ -41,6 +43,10 @@ public class PlayerMovement : MonoBehaviour
     {
         movement.x = Input.GetAxisRaw("Horizontal"); //Gets player input for horizontal movement 
         movement.y = Input.GetAxisRaw("Vertical"); //Gets player input for vertical movement       
+
+        animator.SetFloat("Horizontal", movement.x);//the vertical animation will play in the animator in unity and depending if its up or down will play up or down animation - JM
+        animator.SetFloat("Vertical", movement.y);//the horizontal animation will play in the animator in unity and depending if its left or right will play left or right animation - JM
+        animator.SetFloat("speed", movement.magnitude);//if the player moves at all the animator will know not to play idle animation - JM
 
         if ((transform.position.x <= BottomLeftLimit.x && movement.x == -1) || (transform.position.x >= TopRightLimit.x && movement.x == 1)) //checks if player is in confines of horizontal limit
         {

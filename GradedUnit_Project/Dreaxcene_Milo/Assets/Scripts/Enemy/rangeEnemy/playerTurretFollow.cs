@@ -5,12 +5,12 @@ using UnityEngine;
 public class playerTurretFollow : MonoBehaviour
 {
 
-    private Transform playerPos;
-    Vector2 playerDir;
+    private Transform playerPos;//varible to store the player position - JM
+    Vector2 playerDir;//varible to store the players direction - JM
 
     private void Awake()
     {
-        playerPos = GameObject.FindGameObjectWithTag("Player").transform;
+        playerPos = GameObject.FindGameObjectWithTag("Player").transform;//find the game object with the Player tag - JM
     }
     void Update()
     {
