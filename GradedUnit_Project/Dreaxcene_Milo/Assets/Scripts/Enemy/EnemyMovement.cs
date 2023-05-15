@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    public static EnemyMovement instance;
 
     [SerializeField]
     public float speed; // Variable for speed
@@ -24,8 +23,6 @@ public class EnemyMovement : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
-
         playerPos = GameObject.FindGameObjectWithTag("Player").transform; //Finds object with tag player and its location and stores it within playerPos
         rb = GetComponent<Rigidbody2D>();  //Gets enemy rigidbody
     }
@@ -41,31 +38,38 @@ public class EnemyMovement : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter2D(Collider2D other) //Checks for Ground Enemy NS
+    {
+        switch (other.gameObject.tag) //Checks for objects tags
+        {
+            case "Player":
+                StartCoroutine(EnemyDig()); //Begin Digging
+                break;
+            case "DigRange":
+                StartCoroutine(StopDigging()); //Stop digging
+                break;
+        }
+    }
+
     public IEnumerator EnemyDig() //routine that will be called by GroundEnemyDistance script to cause the enemy to move faster and go invisible
     {
-        Debug.Log("Dig working");
-
-        while (CanDig)
+        if (CanDig)
         {
             CanDig = false;
+            speed = 0;
             GetComponent<SpriteRenderer>().enabled = false; //Turn off sprite renderer
             GetComponent<BoxCollider2D>().enabled = false; //Turn off collider
             GetComponentInChildren<Canvas>().enabled = false; //turn off healthbar
-            Instantiate(EnemyParticle, new Vector2(transform.position.x, transform.position.y), Quaternion.identity); //play particle effect
-            speed = 0;
+            Instantiate(EnemyParticle, new Vector2(transform.position.x, transform.position.y), Quaternion.identity); //play particle effect           
             yield return new WaitForSeconds(1.5f);
             EnemyParticle.Stop();
             speed = DigSpeed; //Speed up
             GetComponent<ParticleSystem>().enableEmission = true;
-        }
-        
-
+        }      
     }
 
     public IEnumerator StopDigging() //Stops ground enemy attacking
     {
-        Debug.Log("Stop Digging");
-
         speed = 0;
         GetComponent<ParticleSystem>().enableEmission = false; //Stop Particle Effect
         GetComponent<SpriteRenderer>().enabled = true;

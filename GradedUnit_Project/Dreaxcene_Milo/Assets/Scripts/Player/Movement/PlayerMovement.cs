@@ -89,17 +89,4 @@ public class PlayerMovement : MonoBehaviour
         yield return new WaitForSeconds(TimeBtwDash); //Waits for length of time between dash
         canDash = true; //Player can now dash again
     }
-
-    private void OnTriggerEnter2D(Collider2D other) //Checks for Ground Enemy NS
-    {
-        switch (other.gameObject.tag) //Checks for objects tags
-        {
-            case "DigRange":
-                StartCoroutine(EnemyMovement.instance.GetComponent<EnemyMovement>().EnemyDig());  //Begin Digging
-                break;
-            case "ToCloseToDig":
-                StartCoroutine(EnemyMovement.instance.GetComponent<EnemyMovement>().StopDigging()); //Stop digging
-                break;
-        }
-    }
 }

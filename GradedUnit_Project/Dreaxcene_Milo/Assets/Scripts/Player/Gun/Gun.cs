@@ -13,6 +13,13 @@ public class Gun : MonoBehaviour
     public float FireRate; //variable for fire rate
     public float FiringInterval; //Variable for interval between shots
 
+    private CamAnim CamAnim;
+
+    private void Start()
+    {
+        CamAnim = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CamAnim>(); //Stores animation screenshake into variable shake    
+    }
+
     void Update() //JM - created basic gun script
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position; 
@@ -29,6 +36,7 @@ public class Gun : MonoBehaviour
     {
         for (int i = 0; i < BulletAmount; i++) 
         {
+            CamAnim.BulletShake();
             GameObject b = Instantiate(Bullet, ShotPos.position,ShotPos.rotation);
             Rigidbody2D brb = b.GetComponent<Rigidbody2D>();
             Vector2 dir = transform.rotation*Vector2.up;
