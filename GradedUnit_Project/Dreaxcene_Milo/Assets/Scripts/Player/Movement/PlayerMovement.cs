@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashSpeed; //Variable to store the speed of the dash
     public float TimeBtwDash; //Variable to store the time between each dash
 
+
     private void Awake()
     {
         instance = this; //Creates and instance of the script
