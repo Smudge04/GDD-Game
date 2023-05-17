@@ -11,6 +11,7 @@ public class EnemyHealth : MonoBehaviour //NS
 
     public static EnemyHealth instance;
 
+    public GameObject EnemyDeathEffect;
 
     private void Start()
     {
@@ -34,6 +35,7 @@ public class EnemyHealth : MonoBehaviour //NS
         if (health <= 0) //If enemy dies
         {
             Destroy(gameObject); //Destroy this object
+            Instantiate(EnemyDeathEffect, new Vector2(transform.position.x, transform.position.y), Quaternion.identity); //play particle effect
         }
     }
 
