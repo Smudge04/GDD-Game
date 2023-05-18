@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
 
     public Animator animator;//Varible to store the animator - JM
 
+
     public GameObject TopRightLimitGameObject; //Variable to store the game object for the border of the screen (top right)
     public GameObject BottomLeftLimitGameObject; //Variable to store the game object for the border of the screen (Bottom Left)
 
@@ -37,7 +38,7 @@ public class PlayerMovement : MonoBehaviour
         TopRightLimit = TopRightLimitGameObject.transform.position; //Stores game object position into variable
         BottomLeftLimit = BottomLeftLimitGameObject.transform.position; //Stores game object position into variable
 
-        SavedSpeed = moveSpeed;
+        SavedSpeed = moveSpeed;   
     }
 
     void Update()
