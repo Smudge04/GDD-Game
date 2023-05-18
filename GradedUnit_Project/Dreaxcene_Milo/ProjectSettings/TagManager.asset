@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - Wall
   - DigRange
+  - ToClose
+  - EnemyCollision
   layers:
   - Default
   - TransparentFX
@@ -20,7 +22,7 @@ TagManager:
   - Bullet
   - enemyBullet
   - DiggingRange
-  - 
+  - EnemyCollision
   - 
   - 
   - 
