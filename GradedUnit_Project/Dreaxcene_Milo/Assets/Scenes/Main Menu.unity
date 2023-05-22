@@ -367,8 +367,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.5642, y: -1.396}
-  m_SizeDelta: {x: 313.288, y: 104.99}
+  m_AnchoredPosition: {x: 2.82, y: 6.563}
+  m_SizeDelta: {x: 450, y: 104.99}
   m_Pivot: {x: 0.50000006, y: 0.5}
 --- !u!114 &396732497
 MonoBehaviour:
@@ -501,8 +501,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 10.252501, y: -2.51}
-  m_SizeDelta: {x: 635.39, y: 104.99}
+  m_AnchoredPosition: {x: 2.8220012, y: 7.75}
+  m_SizeDelta: {x: 450, y: 104.99}
   m_Pivot: {x: 0.50000006, y: 0.5}
 --- !u!114 &924868566
 MonoBehaviour:
@@ -743,8 +743,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 8.986, y: -1.4}
-  m_SizeDelta: {x: 327.0054, y: 104.99}
+  m_AnchoredPosition: {x: 2.819001, y: 8.94}
+  m_SizeDelta: {x: 450, y: 104.99}
   m_Pivot: {x: 0.50000006, y: 0.5}
 --- !u!114 &1171252770
 MonoBehaviour:
@@ -917,7 +917,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1285825401}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.96, y: 3.15, z: 0}
+  m_LocalPosition: {x: -0.15, y: 3.15, z: 0}
   m_LocalScale: {x: 2.6718, y: 2.6718, z: 2.6718}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1044,7 +1044,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: HOW TO PLAY
+  m_Text: TUTORIAL
 --- !u!222 &1475897688
 CanvasRenderer:
   m_ObjectHideFlags: 0
