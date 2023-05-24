@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour //ns all code
 {
-    public int health; //Variable to store players health
+    public float health; //Variable to store players health
     public int numOfHearts; //variable to store the max amount of hearts 
 
     public Image[] hearts; //array to store all heart UI objects
