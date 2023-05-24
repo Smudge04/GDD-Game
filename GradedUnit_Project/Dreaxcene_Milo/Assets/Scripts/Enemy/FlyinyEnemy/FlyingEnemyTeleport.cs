@@ -20,7 +20,7 @@ public class FlyingEnemyTeleport : MonoBehaviour
     
     void Teleport()
     {
-        transform.position += Random.insideUnitSphere * 10;
+        transform.position += Random.insideUnitSphere * 3;
     }
 
 
