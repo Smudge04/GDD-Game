@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour //ns all code
 {
-    public float health; //Variable to store players health
+    public int health; //Variable to store players health
     public int numOfHearts; //variable to store the max amount of hearts 
 
     public Image[] hearts; //array to store all heart UI objects
@@ -83,7 +83,7 @@ public class Health : MonoBehaviour //ns all code
     IEnumerator PlayerDeath()
     {
         PlayerMovement.instance.enabled = false; //stop player movement script
-        //Stop Gun Script
+        GetComponent<Gun>().enabled = false; //Stop Gun Script
         EnemyHealth.instance.DespawnEnemies();
         yield return new WaitForSeconds(1); //wait 1 second
         gameObject.SetActive(false);

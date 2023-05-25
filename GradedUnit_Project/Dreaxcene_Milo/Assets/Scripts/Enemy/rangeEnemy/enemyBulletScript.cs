@@ -42,5 +42,10 @@ public class enemyBulletScript : MonoBehaviour
             other.gameObject.GetComponent<Health>().health -= 1;
             Destroy(gameObject);
         }
+
+        if (other.gameObject.CompareTag("Wall")) //NS
+        {
+            Destroy(gameObject);
+        }
     }
 }

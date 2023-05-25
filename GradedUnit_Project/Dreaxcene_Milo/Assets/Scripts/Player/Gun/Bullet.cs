@@ -20,6 +20,10 @@ public class Bullet : MonoBehaviour
                 Destroy(this.gameObject); //Destroy bullet
                 other.gameObject.GetComponent<EnemyHealth>().TakeDamage(GunDamage); //begin take damage function, passing damage int 
                 break;
+            case "Boss":
+                Destroy(this.gameObject);
+                other.gameObject.GetComponent<BossHealth>().TakeDamage(GunDamage);
+                break;
         }
     }
 }
