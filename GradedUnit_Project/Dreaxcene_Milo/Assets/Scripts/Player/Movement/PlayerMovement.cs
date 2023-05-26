@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement instance; //NS all code for player movement
 
     public float moveSpeed; //Sets player movespeed
-    private float SavedSpeed; //Returns player to original speed
+    public float SavedSpeed; //Returns player to original speed
 
     public Rigidbody2D rb; //Variable to store player rigidbody
 
@@ -38,7 +38,8 @@ public class PlayerMovement : MonoBehaviour
         TopRightLimit = TopRightLimitGameObject.transform.position; //Stores game object position into variable
         BottomLeftLimit = BottomLeftLimitGameObject.transform.position; //Stores game object position into variable
 
-        SavedSpeed = moveSpeed;   
+        SavedSpeed = moveSpeed;
+        dashSpeed = moveSpeed * 2f;
     }
 
     void Update()
@@ -70,7 +71,6 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime); //determins player movement based on position, movement speed and time
-
     }
 
     private void DashAbility()

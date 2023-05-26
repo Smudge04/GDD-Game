@@ -8,6 +8,7 @@ public class speedBoost : PowerUpEffect
 {
     public override void Apply(GameObject target)
     {
-        target.GetComponent<PlayerMovement>().moveSpeed *= 2;
+        target.GetComponent<PlayerMovement>().SavedSpeed *= 2;
+        target.GetComponent<PlayerMovement>().dashSpeed *= 2;
     }
 }
