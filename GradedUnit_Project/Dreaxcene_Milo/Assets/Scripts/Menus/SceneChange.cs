@@ -22,7 +22,7 @@ public class SceneChange : MonoBehaviour
 
     public void PlayGame()//the PlayGame function tied to the play game button
     {
-        LoadNextLevel();
+        LoadNextLevel();//loads next level in the build index
     }
 
     public void QuitGame()//the quitGame function tied to the quit game button
