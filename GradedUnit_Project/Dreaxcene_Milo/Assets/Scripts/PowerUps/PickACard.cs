@@ -7,7 +7,7 @@ public class PickACard : MonoBehaviour
 {
     public int RadNum;
 
-    public int [] AlreadyGot;
+    public int [] AlreadyGot; 
 
     public int counter = 0;
 
