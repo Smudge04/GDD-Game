@@ -11,34 +11,66 @@ public class PickACard : MonoBehaviour
 
     public int counter = 0;
 
+    private bool CopyNumber;
+
 
     private void Start()
     {
-        AlreadyGot[counter] = 0;  
+        AlreadyGot[counter] = 0;
+
+        CopyNumber = false;
     }
 
     public void ranNum()
     {
-
-        RadNum = Random.Range(1, 5);
+        RadNum = Random.Range(1, 6);
         Debug.Log(RadNum);
-
-        if (AlreadyGot[counter] == RadNum)
-        {
-            ranNum();
-        }
-
-        else 
-        {
-            AlreadyGot[counter] = RadNum;
-            counter++;
-            PickPowerup();
-        }       
+        
+        CheckforDouble();
     }
 
-    public void PickPowerup()
+
+    public void CheckforDouble() //NS
     {
-        switch (RadNum) 
+        int i = 0;
+
+        while(i < AlreadyGot.Length)
+        {
+            if(AlreadyGot[i] == RadNum)
+            {
+                CopyNumber = true; //Copy Number equals true
+                i++; //Continue loop
+            }
+            else
+            {
+                i++;
+            }
+        }
+
+        
+        if(CopyNumber == true)
+        {
+            CopyNumber=false;
+            RadNum = Random.Range(1, 6);
+            Debug.Log("New Random Number " + RadNum);
+            CheckforDouble();
+        }
+
+
+        else
+        {
+             AlreadyGot[counter] = RadNum;
+             counter++;
+             PickPowerup();
+        }
+
+        
+    }
+
+
+    public void PickPowerup() //NS
+    {
+        switch (AlreadyGot[counter]) 
         { 
             case 1:
                 Debug.Log("HealthPickup");
