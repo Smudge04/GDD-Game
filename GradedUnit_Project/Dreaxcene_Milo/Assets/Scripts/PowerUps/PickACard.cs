@@ -21,12 +21,19 @@ public class PickACard : MonoBehaviour
         CopyNumber = false;
     }
 
-    public void ranNum()
+    public void ranNum() //NS
     {
-        RadNum = Random.Range(1, 6);
-        Debug.Log(RadNum);
-        
-        CheckforDouble();
+        if(counter < 5)
+        {
+            RadNum = Random.Range(1, 6); //JM
+            Debug.Log(RadNum); // End of JM
+
+            CheckforDouble();
+        }
+        else
+        {
+            Debug.Log("No more Upgrades");
+        }
     }
 
 
@@ -59,9 +66,9 @@ public class PickACard : MonoBehaviour
 
         else
         {
-             AlreadyGot[counter] = RadNum;
-             counter++;
-             PickPowerup();
+            Debug.Log("Choosing Upgrade");
+            AlreadyGot[counter] = RadNum;            
+            PickPowerup();
         }
 
         
@@ -70,28 +77,35 @@ public class PickACard : MonoBehaviour
 
     public void PickPowerup() //NS
     {
+        Debug.Log("Entering Switch Case");
+
         switch (AlreadyGot[counter]) 
         { 
             case 1:
                 Debug.Log("HealthPickup");
+                counter++;
                 break;
 
             case 2:
                 Debug.Log("SpeedPickup");
+                counter++;
                 break;
 
             case 3:
                 Debug.Log("FasterFireRate");
+                counter++;
                 break;
 
             case 4:
                 Debug.Log("Bouncing Bullet");
+                counter++;
                 break;
 
             case 5:
                 Debug.Log("Explosive Bullet");
+                counter++;
                 break;
         }
 
     }
-}
+} //END OF NS

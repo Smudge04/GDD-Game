@@ -31,9 +31,9 @@ public class SceneChange : MonoBehaviour
         Debug.Log("Quit");//
     }
 
-    public void GameOver()
+    public void Test()
     {
-        SceneManager.LoadScene("GameOver");
+        SceneManager.LoadScene("Level-1");
     }
 
     public void LoadNextLevel()
