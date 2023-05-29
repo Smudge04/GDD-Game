@@ -738,7 +738,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9528302, g: 0.876424, b: 0.876424, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1369,10 +1369,10 @@ MonoBehaviour:
   moveSpeed: 3
   dashingTime: 0.3
   TimeBtwDash: 1
-  BulletAmount: 1
-  Spread: 0
-  BulletSpeed: 5
-  FireRate: 0.5
+  BulletAmount: 5
+  Spread: 0.4
+  BulletSpeed: 7
+  FireRate: 0.6
   FiringInterval: 0
   GunDamage: 1
   health: 2
@@ -8039,7 +8039,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.9528302, g: 0.876424, b: 0.876424, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8553,7 +8553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339402875}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.639, y: -1.2888157, z: 3.6120303}
+  m_LocalPosition: {x: -3.06, y: -1.26, z: 3.6120303}
   m_LocalScale: {x: 0.421, y: 0.421, z: 0.421}
   m_ConstrainProportionsScale: 0
   m_Children:
