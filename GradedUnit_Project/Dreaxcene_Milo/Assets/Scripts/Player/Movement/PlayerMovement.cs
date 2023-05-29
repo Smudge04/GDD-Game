@@ -5,8 +5,8 @@ public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement instance; //NS all code for player movement Jm all animation
 
-    public float moveSpeed; //Sets player movespeed
-    public float SavedSpeed; //Returns player to original speed
+    private float moveSpeed; //Sets player movespeed
+    private float SavedSpeed; //Returns player to original speed
 
     public Rigidbody2D rb; //Variable to store player rigidbody
 
@@ -22,15 +22,14 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 BottomLeftLimit; //Variable to store the position of the Bottom Left Limit
 
     [Header("Dashing")]
-    public bool canDash = true; //Variable to check if player can dash
-    public float dashingTime; //Variable to store how long the dash lasts
-    public float dashSpeed; //Variable to store the speed of the dash
-    public float TimeBtwDash; //Variable to store the time between each dash
+    private bool canDash = true; //Variable to check if player can dash
+    private float dashingTime; //Variable to store how long the dash lasts
+    private float TimeBtwDash; //Variable to store the time between each dash
 
 
     private void Awake()
     {
-        instance = this; //Creates and instance of the script
+        instance = this; //Creates and instance of the script       
     }
 
     private void Start()
@@ -38,12 +37,15 @@ public class PlayerMovement : MonoBehaviour
         TopRightLimit = TopRightLimitGameObject.transform.position; //Stores game object position into variable
         BottomLeftLimit = BottomLeftLimitGameObject.transform.position; //Stores game object position into variable
 
+        moveSpeed = VariableStatManager.instance.moveSpeed;
+        dashingTime = VariableStatManager.instance.dashingTime;
+        TimeBtwDash = VariableStatManager.instance.TimeBtwDash;
+
         SavedSpeed = moveSpeed;
-        dashSpeed = moveSpeed * 2f;
     }
 
     void Update()
-    {
+    {       
         movement.x = Input.GetAxisRaw("Horizontal"); //Gets player input for horizontal movement 
         movement.y = Input.GetAxisRaw("Vertical"); //Gets player input for vertical movement       
 
@@ -70,13 +72,13 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime); //determins player movement based on position, movement speed and time
+        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime); //determins player movement based on position, movement speed and time     
     }
 
     private void DashAbility()
     {
         if (canDash) //If can dash equals true
-        {
+        {          
             StartCoroutine(Dash()); //Starts coroutine to Dash
         }
     }
@@ -84,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
     {
         canDash = false; //Sets can dash to false
 
-        moveSpeed = dashSpeed; //Move speed is increased to the number set within dash speed variable
+        moveSpeed *= 2; //Move speed is increased to the number set within dash speed variable
 
         yield return new WaitForSeconds(dashingTime); //Waits for length of dash
         moveSpeed = SavedSpeed; //Returns move speed to original speed

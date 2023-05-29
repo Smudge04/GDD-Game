@@ -1,18 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class PickACard : MonoBehaviour
 {
+    public static PickACard instance = null;
+
     public int RadNum;
 
-    public int [] AlreadyGot; 
+    public int[] AlreadyGot;
 
     public int counter = 0;
 
     private bool CopyNumber;
 
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(base.gameObject);
+        }
+        else
+        {
+            Destroy(base.gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -23,7 +37,7 @@ public class PickACard : MonoBehaviour
 
     public void ranNum() //NS
     {
-        if(counter < 5)
+        if (counter < 5)
         {
             RadNum = Random.Range(1, 6); //JM
             Debug.Log(RadNum); // End of JM
@@ -41,9 +55,9 @@ public class PickACard : MonoBehaviour
     {
         int i = 0;
 
-        while(i < AlreadyGot.Length)
+        while (i < AlreadyGot.Length)
         {
-            if(AlreadyGot[i] == RadNum)
+            if (AlreadyGot[i] == RadNum)
             {
                 CopyNumber = true; //Copy Number equals true
                 i++; //Continue loop
@@ -54,10 +68,10 @@ public class PickACard : MonoBehaviour
             }
         }
 
-        
-        if(CopyNumber == true)
+
+        if (CopyNumber == true)
         {
-            CopyNumber=false;
+            CopyNumber = false;
             RadNum = Random.Range(1, 6);
             Debug.Log("New Random Number " + RadNum);
             CheckforDouble();
@@ -67,11 +81,11 @@ public class PickACard : MonoBehaviour
         else
         {
             Debug.Log("Choosing Upgrade");
-            AlreadyGot[counter] = RadNum;            
+            AlreadyGot[counter] = RadNum;
             PickPowerup();
         }
 
-        
+
     }
 
 
@@ -79,12 +93,12 @@ public class PickACard : MonoBehaviour
     {
         Debug.Log("Entering Switch Case");
 
-        switch (AlreadyGot[counter]) 
-        { 
+        switch (AlreadyGot[counter])
+        {
             case 1:
                 Debug.Log("HealthPickup");
+                VariableStatManager.instance.AddHealth();
                 counter++;
-                
                 break;
 
             case 2:
@@ -110,3 +124,4 @@ public class PickACard : MonoBehaviour
 
     }
 } //END OF NS
+

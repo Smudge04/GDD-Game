@@ -1,0 +1,52 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class VariableStatManager : MonoBehaviour
+{
+    public static VariableStatManager instance = null; 
+
+    [Header("Movement Speed")]
+    public float moveSpeed; //Sets player movespeed
+
+    [Header("Dashing")]
+    public float dashingTime; //Variable to store how long the dash lasts
+    public float TimeBtwDash; //Variable to store the time between each dash
+
+    [Header("Gun")]
+    public int BulletAmount;
+    public float Spread, BulletSpeed;
+    public float FireRate; //variable for fire rate
+    public float FiringInterval; //Variable for interval between shots
+
+    [Header("Bullet")]
+    public int GunDamage;
+
+    [Header("Health")]
+    public int health; //Variable to store players health
+    public int numOfHearts; //variable to store the max amount of hearts
+
+    private void Awake()
+    {
+        if(instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(base.gameObject);
+        }
+        else
+        {
+            Destroy(base.gameObject);
+        }
+    }
+
+    private void Start()
+    {
+        health = numOfHearts;
+    }
+
+    public void AddHealth()
+    {
+        numOfHearts += 3;
+        health += 3;
+    }
+}

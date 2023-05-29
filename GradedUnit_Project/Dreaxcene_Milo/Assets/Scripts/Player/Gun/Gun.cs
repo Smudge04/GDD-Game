@@ -7,13 +7,22 @@ public class Gun : MonoBehaviour
     public float OffSet;
     public Transform ShotPos;
     public GameObject Bullet;
-    public int BulletAmount;
-    public float Spread, BulletSpeed;
+    private int BulletAmount;
+    private float Spread, BulletSpeed;
 
-    public float FireRate; //variable for fire rate
-    public float FiringInterval; //Variable for interval between shots
+    private float FireRate; //variable for fire rate
+    private float FiringInterval; //Variable for interval between shots
 
     private CamAnim CamAnim;
+
+    private void Awake()
+    {
+        BulletAmount = VariableStatManager.instance.BulletAmount;
+        Spread = VariableStatManager.instance.Spread;
+        BulletSpeed = VariableStatManager.instance.BulletSpeed;
+        FireRate = VariableStatManager.instance.FireRate;
+        FiringInterval = VariableStatManager.instance.FiringInterval;
+    }
 
     private void Start()
     {
