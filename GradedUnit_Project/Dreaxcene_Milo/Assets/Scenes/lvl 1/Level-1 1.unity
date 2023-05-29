@@ -1377,6 +1377,7 @@ MonoBehaviour:
   GunDamage: 1
   health: 2
   numOfHearts: 3
+  AlreadyGot: 0000000000000000000000000000000000000000
 --- !u!1 &517068747
 GameObject:
   m_ObjectHideFlags: 0

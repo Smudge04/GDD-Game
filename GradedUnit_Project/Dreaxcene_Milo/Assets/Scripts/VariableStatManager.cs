@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class VariableStatManager : MonoBehaviour
+public class VariableStatManager : MonoBehaviour //NS
 {
     public static VariableStatManager instance = null; 
 
@@ -26,6 +26,12 @@ public class VariableStatManager : MonoBehaviour
     public int health; //Variable to store players health
     public int numOfHearts; //variable to store the max amount of hearts
 
+
+    [Header("Upgrade Manager")]
+    public int[] AlreadyGot;
+    public int Counter = 0;
+ 
+
     private void Awake()
     {
         if(instance == null)
@@ -42,11 +48,14 @@ public class VariableStatManager : MonoBehaviour
     private void Start()
     {
         health = numOfHearts;
+
+        AlreadyGot[0] = 0;
     }
+
 
     public void AddHealth()
     {
         numOfHearts += 3;
         health += 3;
     }
-}
+} //END OF NS

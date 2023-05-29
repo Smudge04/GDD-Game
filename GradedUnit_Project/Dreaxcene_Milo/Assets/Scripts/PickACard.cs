@@ -2,38 +2,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickACard : MonoBehaviour
+public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
 {
-    public static PickACard instance = null;
+    public static PickACard Instance;
 
     public int RadNum;
 
-    public int[] AlreadyGot;
-
-    public int counter = 0;
+    public int counter;
 
     private bool CopyNumber;
 
-
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(base.gameObject);
-        }
-        else
-        {
-            Destroy(base.gameObject);
-        }
+        Instance = this; 
     }
 
     private void Start()
     {
-        AlreadyGot[counter] = 0;
+        counter = VariableStatManager.instance.Counter;
+        VariableStatManager.instance.AlreadyGot[counter] = 0;
 
         CopyNumber = false;
     }
+
 
     public void ranNum() //NS
     {
@@ -41,12 +32,14 @@ public class PickACard : MonoBehaviour
         {
             RadNum = Random.Range(1, 6); //JM
             Debug.Log(RadNum); // End of JM
+            VariableStatManager.instance.Counter ++;
 
             CheckforDouble();
         }
         else
         {
             Debug.Log("No more Upgrades");
+            VariableStatManager.instance.Counter = counter;
         }
     }
 
@@ -55,9 +48,9 @@ public class PickACard : MonoBehaviour
     {
         int i = 0;
 
-        while (i < AlreadyGot.Length)
+        while (i < VariableStatManager.instance.AlreadyGot.Length)
         {
-            if (AlreadyGot[i] == RadNum)
+            if (VariableStatManager.instance.AlreadyGot[i] == RadNum)
             {
                 CopyNumber = true; //Copy Number equals true
                 i++; //Continue loop
@@ -81,7 +74,7 @@ public class PickACard : MonoBehaviour
         else
         {
             Debug.Log("Choosing Upgrade");
-            AlreadyGot[counter] = RadNum;
+            VariableStatManager.instance.AlreadyGot[counter] = RadNum;
             PickPowerup();
         }
 
@@ -93,7 +86,7 @@ public class PickACard : MonoBehaviour
     {
         Debug.Log("Entering Switch Case");
 
-        switch (AlreadyGot[counter])
+        switch (VariableStatManager.instance.AlreadyGot[counter])
         {
             case 1:
                 Debug.Log("HealthPickup");
