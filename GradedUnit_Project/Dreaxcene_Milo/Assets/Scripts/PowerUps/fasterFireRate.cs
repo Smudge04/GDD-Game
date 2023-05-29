@@ -7,6 +7,7 @@ public class fasterFireRate : PowerUpEffect
 {
     public override void Apply(GameObject target)
     {
-        target.GetComponent<Gun>().BulletAmount += 2;
+        Debug.Log("does this shi work");
+        target.GetComponent<Gun>().FireRate += 2;
     }
 }

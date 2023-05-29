@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
+using UnityEditor.VersionControl;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -9,11 +11,8 @@ public class InteractableObjects : MonoBehaviour
     public bool isInRange;
     public KeyCode interactKey;
     public UnityEvent interactAction;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public GameObject dialog1;
+    public GameObject dialog2;
 
     // Update is called once per frame
     void Update()
@@ -35,6 +34,8 @@ public class InteractableObjects : MonoBehaviour
         {
             isInRange = true;
             Debug.Log("Player Now In Range");
+            dialog1.SetActive(true);
+            dialog2.SetActive(false);
         }
     }
 
@@ -44,6 +45,8 @@ public class InteractableObjects : MonoBehaviour
         {
             isInRange = false;
             Debug.Log("Player Now Not In Range");
+            dialog1.SetActive(false);
+            dialog2.SetActive(true);
         }
     }
 }

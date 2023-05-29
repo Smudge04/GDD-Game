@@ -84,6 +84,7 @@ public class PickACard : MonoBehaviour
             case 1:
                 Debug.Log("HealthPickup");
                 counter++;
+                
                 break;
 
             case 2:

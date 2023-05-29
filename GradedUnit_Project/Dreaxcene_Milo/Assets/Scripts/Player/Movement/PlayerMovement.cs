@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public static PlayerMovement instance; //NS all code for player movement
+    public static PlayerMovement instance; //NS all code for player movement Jm all animation
 
     public float moveSpeed; //Sets player movespeed
     public float SavedSpeed; //Returns player to original speed

@@ -15,14 +15,14 @@ public class SceneChange : MonoBehaviour
 
     public float transitionTime = 1f;
 
-    private void Start()
+    public void Start()
     {
         instance = this;    
     }
 
     public void PlayGame()//the PlayGame function tied to the play game button
     {
-        LoadNextLevel();//loads next level in the build index
+        SceneManager.LoadScene("Level-1");
     }
 
     public void QuitGame()//the quitGame function tied to the quit game button
