@@ -58,4 +58,15 @@ public class VariableStatManager : MonoBehaviour //NS
         numOfHearts += 3;
         health += 3;
     }
+
+    public void FasterMovement()
+    {
+        moveSpeed += 2;
+        BulletSpeed += 2;
+    }
+
+    public void FireRateUp()
+    {
+        FireRate -= 0.2f;
+    }
 } //END OF NS

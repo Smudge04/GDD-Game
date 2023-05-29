@@ -19,7 +19,7 @@ MonoBehaviour:
     width: 1920
     height: 997
   m_ShowMode: 4
-  m_Title: Project
+  m_Title: Game
   m_RootView: {fileID: 2}
   m_MinSize: {x: 875, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
@@ -668,9 +668,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.6394295, y: -0.5938369, z: 0.021513898}
+    m_Target: {x: -2.8752112, y: 0.7442002, z: 0.023676861}
     speed: 2
-    m_Value: {x: 0.6394295, y: -0.5938369, z: 0.021513898}
+    m_Value: {x: -2.8752112, y: 0.7442002, z: 0.023676861}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -720,9 +720,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 5.039558
+    m_Target: 5.458882
     speed: 2
-    m_Value: 5.039558
+    m_Value: 5.458882
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -778,9 +778,9 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 6e6b0000
-      m_LastClickedID: 27502
-      m_ExpandedIDs: 28fbffff
+      m_SelectedIDs: 02a30000
+      m_LastClickedID: 41730
+      m_ExpandedIDs: 3e39feff683cfeff7ad7feff6c0cffff28fbfffff4ffffffce9800000a990000f09d0000baa10000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -845,22 +845,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Scripts
+    - Assets/Scenes/lvl 1
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts
+  - Assets/Scenes/lvl 1
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\Nathan\Desktop\GDD-projectDump\GDD-Game\GradedUnit_Project\Dreaxcene_Milo
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 788d0000
-    m_LastClickedID: 36216
-    m_ExpandedIDs: 00000000346e000000ca9a3b
+    m_SelectedIDs: c2850000
+    m_LastClickedID: 34242
+    m_ExpandedIDs: 00000000346e0000167000001870000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -915,7 +915,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0

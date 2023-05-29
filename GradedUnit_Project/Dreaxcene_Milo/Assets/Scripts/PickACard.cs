@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
 {
@@ -11,6 +12,8 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
     public int counter;
 
     private bool CopyNumber;
+
+    public GameObject LeftButton, RightButton;
 
     private void Awake()
     {
@@ -28,6 +31,9 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
 
     public void ranNum() //NS
     {
+        LeftButton.GetComponent<Button>().enabled = false;
+        RightButton.GetComponent<Button>().enabled = false;
+
         if (counter < 5)
         {
             RadNum = Random.Range(1, 6); //JM
@@ -96,11 +102,13 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
 
             case 2:
                 Debug.Log("SpeedPickup");
+                VariableStatManager.instance.FasterMovement();
                 counter++;
                 break;
 
             case 3:
                 Debug.Log("FasterFireRate");
+                VariableStatManager.instance.FireRateUp();
                 counter++;
                 break;
 
@@ -115,6 +123,15 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
                 break;
         }
 
+        StartCoroutine(CloseScene());
+    }
+
+
+    IEnumerator CloseScene()
+    {
+        yield return new WaitForSeconds(2);
+        //Display Text and or card
+        SceneChange.instance.Test(); //Change this line to change back to previous scene
     }
 } //END OF NS
 
