@@ -4,9 +4,9 @@ public class Bullet : MonoBehaviour
 {
     public int GunDamage;
 
-    private void Awake()
+    private void Start() //NS
     {
-        GunDamage = VariableStatManager.instance.GunDamage;
+        GunDamage = 1; //Sets gundamage at the start of the game
     }
 
     void OnTriggerEnter2D(Collider2D other)

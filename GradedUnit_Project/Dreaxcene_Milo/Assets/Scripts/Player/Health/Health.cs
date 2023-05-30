@@ -5,8 +5,8 @@ using UnityEngine.UI;
 
 public class Health : MonoBehaviour //ns all code
 {
-    private int health; //Variable to store players health
-    private int numOfHearts; //variable to store the max amount of hearts 
+    public int health; //Variable to store players health
+    public int numOfHearts; //variable to store the max amount of hearts 
 
     public Image[] hearts; //array to store all heart UI objects
     public Sprite FullHeart; //stores the sprite for a full heart
@@ -22,13 +22,7 @@ public class Health : MonoBehaviour //ns all code
     {
         anim = GetComponent<Animator>(); //Gets animator component
     }
-
-    private void FixedUpdate()
-    {
-        health = VariableStatManager.instance.health;
-        numOfHearts = VariableStatManager.instance.numOfHearts;
-    }
-
+   
     private void Update()
     {
         if(health > numOfHearts) //if loop to check if players health is greater than the number of hearts
@@ -57,11 +51,10 @@ public class Health : MonoBehaviour //ns all code
             }
         }
 
-        if(VariableStatManager.instance.health <= 0) //if player is dead
+        if(health <= 0) //if player is dead
         {
             StartCoroutine(PlayerDeath()); //start death Coroutine
         }
-
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -71,7 +64,7 @@ public class Health : MonoBehaviour //ns all code
             if (other.tag == "Enemy") //If player collides with enemy
             {
                 StartCoroutine(HitBoxOff()); //Turns off player hitbox
-                VariableStatManager.instance.health --; //remove 1 from health
+                health--; //remove 1 from health
             }
         }
     }

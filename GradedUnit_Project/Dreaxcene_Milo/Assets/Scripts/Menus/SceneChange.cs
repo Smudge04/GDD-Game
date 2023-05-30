@@ -33,7 +33,7 @@ public class SceneChange : MonoBehaviour
 
     public void Test()
     {
-        SceneManager.LoadScene("Level-1 1");
+        SceneManager.LoadScene("Level-1");
     }
 
     public void LoadNextLevel()
