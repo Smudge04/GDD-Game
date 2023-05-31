@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int GunDamage;
+    public float GunDamage; //NS
 
     private void Awake()
     {
-        GunDamage = VariableStatManager.instance.GunDamage;
+        GunDamage = VariableStatManager.instance.GunDamage; //stores the current damage the gun can do
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -18,11 +18,11 @@ public class Bullet : MonoBehaviour
                 break;
             case "Enemy": //If it is an enemy
                 Destroy(this.gameObject); //Destroy bullet
-                other.gameObject.GetComponent<EnemyHealth>().TakeDamage(GunDamage); //begin take damage function, passing damage int 
+                other.gameObject.GetComponent<EnemyHealth>().TakeDamage(GunDamage); //begin take damage function, passing damage float 
                 break;
-            case "Boss":
+            case "Boss": //if it collides with boss
                 Destroy(this.gameObject);
-                other.gameObject.GetComponent<BossHealth>().TakeDamage(GunDamage);
+                other.gameObject.GetComponent<BossHealth>().TakeDamage(GunDamage); //begin take damage to boss passing damage float
                 break;
         }
     }

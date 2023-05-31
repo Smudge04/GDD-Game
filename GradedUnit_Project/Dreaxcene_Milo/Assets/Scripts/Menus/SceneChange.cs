@@ -15,9 +15,16 @@ public class SceneChange : MonoBehaviour
 
     public float transitionTime = 1f;
 
+    public int counter; //NS - checks for level
+
     public void Start()
     {
         instance = this;    
+    }
+
+    private void FixedUpdate()
+    {
+        counter = VariableStatManager.instance.Counter;
     }
 
     public void PlayGame()//the PlayGame function tied to the play game button
@@ -31,9 +38,36 @@ public class SceneChange : MonoBehaviour
         Debug.Log("Quit");//
     }
 
-    public void Test()
+    public void BackToMerchant() //NS
     {
-        SceneManager.LoadScene("Level-1 1");
+        SceneManager.LoadScene("Merchant_Room");
+    }
+
+    public void PreviousScene() //NS
+    {
+        switch (counter)
+        {
+            case 1:
+                SceneManager.LoadScene("Level-1-4");
+                //back to level 1-4
+                break;
+
+            case 2:
+                //back to level 2-7
+                break;
+
+            case 3:
+                //back to level 3-4
+                break;
+
+            case 4:
+                //back to level 3-7
+                break;
+
+            case 5:
+                //back to level 4-2
+                break;
+        }
     }
 
     public void LoadNextLevel()

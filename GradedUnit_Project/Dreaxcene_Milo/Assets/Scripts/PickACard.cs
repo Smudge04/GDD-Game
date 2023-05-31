@@ -97,28 +97,39 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
             case 1:
                 Debug.Log("HealthPickup");
                 VariableStatManager.instance.AddHealth();
+                //Display and move this upgrade
+                UpgradeDisplay.instance.ShowCard(counter);
                 counter++;
                 break;
 
             case 2:
                 Debug.Log("SpeedPickup");
                 VariableStatManager.instance.FasterMovement();
+                //Display and move this upgrade
+                UpgradeDisplay.instance.ShowCard(counter);
                 counter++;
                 break;
 
             case 3:
                 Debug.Log("FasterFireRate");
                 VariableStatManager.instance.FireRateUp();
+                //Display and move this upgrade
+                UpgradeDisplay.instance.ShowCard(counter);
                 counter++;
                 break;
 
             case 4:
-                Debug.Log("Bouncing Bullet");
+                Debug.Log("Shotgun Upgrade");
+                VariableStatManager.instance.Shotgun();
+                //Display and move this upgrade
+                UpgradeDisplay.instance.ShowCard(counter);
                 counter++;
                 break;
 
             case 5:
                 Debug.Log("Explosive Bullet");
+                //Display and move this upgrade
+                UpgradeDisplay.instance.ShowCard(counter);
                 counter++;
                 break;
         }
@@ -129,9 +140,9 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
 
     IEnumerator CloseScene()
     {
-        yield return new WaitForSeconds(2);
         //Display Text and or card
-        SceneChange.instance.Test(); //Change this line to change back to previous scene
+        yield return new WaitForSeconds(2);
+        SceneChange.instance.BackToMerchant(); //Change this line to change back to previous scene
     }
 } //END OF NS
 

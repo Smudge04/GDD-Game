@@ -9,6 +9,6 @@ public class FloatingHealthBar : MonoBehaviour
 
     public void UpdateHealthBar(float currentValue, float maxValue)
     {
-        slider.value = currentValue / maxValue;
+        slider.value = currentValue / maxValue; //Slider value is equal to the values that have been passed in NS
     }
 }

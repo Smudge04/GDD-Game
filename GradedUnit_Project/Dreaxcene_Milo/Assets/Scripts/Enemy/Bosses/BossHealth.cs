@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BossHealth : MonoBehaviour
+public class BossHealth : MonoBehaviour //All NS
 {
     [SerializeField] private float health, maxHealth; //Variable to store enemy health, allows for each enemy to have a different health
 
@@ -25,7 +25,7 @@ public class BossHealth : MonoBehaviour
         healthBar = GetComponentInChildren<BossHealthBar>();
     }
 
-    public void TakeDamage(int Damage)
+    public void TakeDamage(float Damage)
     {
         health -= Damage; //Take damage equal to bullet damage
         healthBar.UpdateHealthBar(health, maxHealth);

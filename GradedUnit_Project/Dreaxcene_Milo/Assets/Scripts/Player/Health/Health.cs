@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Health : MonoBehaviour //ns all code
+public class Health : MonoBehaviour //NS all code
 {
     private int health; //Variable to store players health
     private int numOfHearts; //variable to store the max amount of hearts 
@@ -25,8 +25,13 @@ public class Health : MonoBehaviour //ns all code
 
     private void FixedUpdate()
     {
-        health = VariableStatManager.instance.health;
+        health = VariableStatManager.instance.health;              //Health and numOfHearts = to variable manager variables
         numOfHearts = VariableStatManager.instance.numOfHearts;
+
+        if(VariableStatManager.instance.health <= 0) //if the health is less than or equal to 0 - begin death coroutine
+        {
+            StartCoroutine(PlayerDeath());
+        }
     }
 
     private void Update()
@@ -55,13 +60,7 @@ public class Health : MonoBehaviour //ns all code
             {
                 hearts[i].enabled = false;
             }
-        }
-
-        if(VariableStatManager.instance.health <= 0) //if player is dead
-        {
-            StartCoroutine(PlayerDeath()); //start death Coroutine
-        }
-
+        }    
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -90,10 +89,10 @@ public class Health : MonoBehaviour //ns all code
     IEnumerator PlayerDeath()
     {
         PlayerMovement.instance.enabled = false; //stop player movement script
-        GetComponent<Gun>().enabled = false; //Stop Gun Script
-        EnemyHealth.instance.DespawnEnemies();
-        yield return new WaitForSeconds(1); //wait 1 second
-        gameObject.SetActive(false);
+        GetComponentInChildren<Gun>().enabled = false; //Stop Gun Script
+        EnemyHealth.instance.DespawnEnemies(); //Despawns all enemies
+        yield return new WaitForSeconds(2); //wait 1 second
+        Destroy(gameObject); //Destroy this object
         Instantiate(PlayerDeathParticle, new Vector2(transform.position.x, transform.position.y), Quaternion.identity); //play particle effect
         //Game over
     }

@@ -6,7 +6,7 @@ public class CamAnim : MonoBehaviour
 {
     public Animator animator;
 
-    public void BulletShake()
+    public void BulletShake() //Sets trigger to shake camera each time the gun is used NS
     {
         animator.SetTrigger("BulletShake");
     }
