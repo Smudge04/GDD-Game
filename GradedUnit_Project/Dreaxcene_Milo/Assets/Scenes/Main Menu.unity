@@ -664,7 +664,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1311951724}
         m_TargetAssemblyTypeName: SceneChange, Assembly-CSharp
-        m_MethodName: PlayGame
+        m_MethodName: LoadNextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1040,6 +1040,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: {fileID: 0}
   transitionTime: 1
+  counter: 0
 --- !u!4 &1311951725
 Transform:
   m_ObjectHideFlags: 0

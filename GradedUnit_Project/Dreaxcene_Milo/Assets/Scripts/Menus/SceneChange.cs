@@ -29,7 +29,7 @@ public class SceneChange : MonoBehaviour
 
     public void PlayGame()//the PlayGame function tied to the play game button
     {
-        SceneManager.LoadScene("Level-1");
+        LoadNextLevel();
     }
 
     public void QuitGame()//the quitGame function tied to the quit game button

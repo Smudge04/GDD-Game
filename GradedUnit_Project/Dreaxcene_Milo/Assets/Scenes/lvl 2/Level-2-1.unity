@@ -849,6 +849,82 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1001 &570279169
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 2
+    m_TransformParent: {fileID: 784796865}
+    m_Modifications:
+    - target: {fileID: 3230570139878619042, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230570139878619042, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230570140613389414, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+      propertyPath: m_Name
+      value: SpeedEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230570140613389414, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230570140613389415, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+      propertyPath: m_RootOrder
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230570140613389415, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.37617767
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230570140613389415, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.4435978
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230570140613389415, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 9.425233
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230570140613389415, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230570140613389415, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230570140613389415, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230570140613389415, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230570140613389415, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230570140613389415, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3230570140613389415, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_AddedGameObjects: []
+  m_SourcePrefab: {fileID: 100100000, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+--- !u!4 &570279170 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3230570140613389415, guid: 84a06e044b6c6524bb237bf353f94cc4, type: 3}
+  m_PrefabInstance: {fileID: 570279169}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1380,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1339402876}
+  - {fileID: 570279170}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2065,7 +2142,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339402875}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.7538224, y: 2.2646184, z: 2.2011726}
+  m_LocalPosition: {x: 3.77, y: 2.43, z: 2.2011726}
   m_LocalScale: {x: 0.421, y: 0.421, z: 0.421}
   m_ConstrainProportionsScale: 0
   m_Children:
