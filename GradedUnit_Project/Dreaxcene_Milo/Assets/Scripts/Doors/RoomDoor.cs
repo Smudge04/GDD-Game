@@ -11,6 +11,7 @@ public class RoomDoor : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
+            DisplayLevel.Instance.LevelCounter++;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         

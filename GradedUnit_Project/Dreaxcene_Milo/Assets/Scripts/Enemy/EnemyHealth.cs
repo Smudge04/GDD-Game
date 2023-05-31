@@ -34,6 +34,7 @@ public class EnemyHealth : MonoBehaviour //all NS
 
         if (health <= 0) //If enemy dies
         {
+            EnemiesInRoomCounter.instance.EnemyCount--;
             Destroy(gameObject); //Destroy this object
             Instantiate(EnemyDeathEffect, new Vector2(transform.position.x, transform.position.y), Quaternion.identity); //play particle effect
         }

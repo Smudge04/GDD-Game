@@ -40,7 +40,7 @@ public class SceneChange : MonoBehaviour
 
     public void BackToMerchant() //NS
     {
-        SceneManager.LoadScene("Merchant_Room");
+        SceneManager.LoadScene("Merchant_Room_noUPGRADE");
     }
 
     public void PreviousScene() //NS
@@ -50,21 +50,27 @@ public class SceneChange : MonoBehaviour
             case 1:
                 SceneManager.LoadScene("Level-1-4");
                 //back to level 1-4
+
+                //TURN OFF DOOR BACK
                 break;
 
             case 2:
+                SceneManager.LoadScene("Level-2-7");
                 //back to level 2-7
                 break;
 
             case 3:
+                SceneManager.LoadScene("Level-3-4");
                 //back to level 3-4
                 break;
 
             case 4:
+                SceneManager.LoadScene("Level-3-7");
                 //back to level 3-7
                 break;
 
             case 5:
+                SceneManager.LoadScene("Level-4-2");
                 //back to level 4-2
                 break;
         }
@@ -72,7 +78,7 @@ public class SceneChange : MonoBehaviour
 
     public void LoadNextLevel()
     {
-       StartCoroutine (LoadLevel(SceneManager.GetActiveScene().buildIndex + 1)); 
+        StartCoroutine (LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));        
     }
     IEnumerator LoadLevel(int levelIndex)
     {

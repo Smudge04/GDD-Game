@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,8 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
     private bool CopyNumber;
 
     public GameObject LeftButton, RightButton;
+
+    public GameObject[] UpgradeImages;
 
     private void Awake()
     {
@@ -97,7 +100,7 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
             case 1:
                 Debug.Log("HealthPickup");
                 VariableStatManager.instance.AddHealth();
-                //Display and move this upgrade
+                UpgradeImages[VariableStatManager.instance.Counter--].SetActive(true); //Display and move this upgrade
                 UpgradeDisplay.instance.ShowCard(counter);
                 counter++;
                 break;
@@ -105,7 +108,7 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
             case 2:
                 Debug.Log("SpeedPickup");
                 VariableStatManager.instance.FasterMovement();
-                //Display and move this upgrade
+                 //Display and move this upgrade
                 UpgradeDisplay.instance.ShowCard(counter);
                 counter++;
                 break;
@@ -113,7 +116,7 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
             case 3:
                 Debug.Log("FasterFireRate");
                 VariableStatManager.instance.FireRateUp();
-                //Display and move this upgrade
+                 //Display and move this upgrade
                 UpgradeDisplay.instance.ShowCard(counter);
                 counter++;
                 break;
@@ -121,14 +124,14 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
             case 4:
                 Debug.Log("Shotgun Upgrade");
                 VariableStatManager.instance.Shotgun();
-                //Display and move this upgrade
+                 //Display and move this upgrade
                 UpgradeDisplay.instance.ShowCard(counter);
                 counter++;
                 break;
 
             case 5:
                 Debug.Log("Explosive Bullet");
-                //Display and move this upgrade
+                 //Display and move this upgrade
                 UpgradeDisplay.instance.ShowCard(counter);
                 counter++;
                 break;
@@ -141,7 +144,7 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
     IEnumerator CloseScene()
     {
         //Display Text and or card
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(4);
         SceneChange.instance.BackToMerchant(); //Change this line to change back to previous scene
     }
 } //END OF NS
