@@ -7,7 +7,7 @@ using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneChange : MonoBehaviour
+public class SceneChange : MonoBehaviour //NS
 {
     public static SceneChange instance;
 
@@ -32,6 +32,21 @@ public class SceneChange : MonoBehaviour
         LoadNextLevel();
     }
 
+    public void HelpScreen()
+    {
+        SceneManager.LoadScene("HelpScreen");
+    }
+
+    public void BackToMain()
+    {
+        SceneManager.LoadScene("Main Menu");
+    }
+
+    public void EmptyRoom()
+    {
+        SceneManager.LoadScene("EmptyRoom");
+    }
+
     public void QuitGame()//the quitGame function tied to the quit game button
     {
         Application.Quit();// terminates the game
@@ -41,51 +56,50 @@ public class SceneChange : MonoBehaviour
     public void BackToMerchant() //NS
     {
         SceneManager.LoadScene("Merchant_Room_noUPGRADE");
+        ShowCanvas.instance.CanShow = true;
     }
 
-    public void PreviousScene() //NS
+    public void NextScene() //NS
     {
         switch (counter)
         {
             case 1:
-                SceneManager.LoadScene("Level-1-4");
-                //back to level 1-4
-
-                //TURN OFF DOOR BACK
+                SceneManager.LoadScene("Level-1-5");
                 break;
 
             case 2:
-                SceneManager.LoadScene("Level-2-7");
-                //back to level 2-7
+                SceneManager.LoadScene("Level-3-1");
                 break;
 
             case 3:
-                SceneManager.LoadScene("Level-3-4");
-                //back to level 3-4
+                SceneManager.LoadScene("Level-3-5");
                 break;
 
             case 4:
-                SceneManager.LoadScene("Level-3-7");
-                //back to level 3-7
+                SceneManager.LoadScene("Level-4-1");
                 break;
 
             case 5:
-                SceneManager.LoadScene("Level-4-2");
-                //back to level 4-2
+                SceneManager.LoadScene("Level-4-3");
                 break;
         }
     }
 
+    public void GameOver()
+    {
+        ShowCanvas.instance.CanShow = false;
+        StartCoroutine(BeginGameOver());
+    }
+
+    IEnumerator BeginGameOver()
+    {
+        yield return new WaitForSeconds(3);
+        SceneManager.LoadScene("Stand-in Game finished"); //Change to game over screen
+    }
+
     public void LoadNextLevel()
     {
-        StartCoroutine (LoadLevel(SceneManager.GetActiveScene().buildIndex + 1));        
-    }
-    IEnumerator LoadLevel(int levelIndex)
-    {
-        transition.SetTrigger("StartFade");
-
-        yield return new WaitForSeconds(transitionTime);
-
-        SceneManager.LoadScene(levelIndex);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        ShowCanvas.instance.CanShow = true;
     }
 }

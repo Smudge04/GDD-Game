@@ -39,10 +39,5 @@ public class EnemyHealth : MonoBehaviour //all NS
             Instantiate(EnemyDeathEffect, new Vector2(transform.position.x, transform.position.y), Quaternion.identity); //play particle effect
         }
     }
-
-    public void DespawnEnemies()
-    {
-        this.gameObject.SetActive(false); //If player dies, despawns all enemies
-    }
 }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class DiggingRange : MonoBehaviour //all NS
 {
     [SerializeField] float DigSpeed; //Saves digspeed set in inspector
+    [SerializeField] int DigCooldown;
     private bool CanDig = true; //checks if enemy can dig
     public GameObject DigRange; //checks if player is in dig range
     public GameObject ToCloseToDig; //checks if enemy is to close to keep digging
@@ -57,7 +58,7 @@ public class DiggingRange : MonoBehaviour //all NS
             yield return new WaitForSeconds(0.2f); //waits for 0.2 seconds
             GetComponent<EnemyMovement>().speed = 1; //sets speed back to 1
 
-            yield return new WaitForSeconds(2); //waits for 2 seconds
+            yield return new WaitForSeconds(DigCooldown); //waits for 2 seconds
 
             ToCloseToDig.GetComponent<CircleCollider2D>().enabled = false; //turns off to close to dig range collider
             DigRange.GetComponent<CircleCollider2D>().enabled = true; //turns back on dig range collider

@@ -28,7 +28,7 @@ public class Health : MonoBehaviour //NS all code
         health = VariableStatManager.instance.health;              //Health and numOfHearts = to variable manager variables
         numOfHearts = VariableStatManager.instance.numOfHearts;
 
-        if(VariableStatManager.instance.health <= 0) //if the health is less than or equal to 0 - begin death coroutine
+        if(health <= 0) //if the health is less than or equal to 0 - begin death coroutine
         {
             StartCoroutine(PlayerDeath());
         }
@@ -88,12 +88,13 @@ public class Health : MonoBehaviour //NS all code
 
     IEnumerator PlayerDeath()
     {
+        SceneChange.instance.GameOver(); //Begin Game over in scene change
         PlayerMovement.instance.enabled = false; //stop player movement script
         GetComponentInChildren<Gun>().enabled = false; //Stop Gun Script
-        EnemyHealth.instance.DespawnEnemies(); //Despawns all enemies
+        DestroyEnemies.instance.Destroy(); //Despawns all enemies
         yield return new WaitForSeconds(2); //wait 1 second
         Destroy(gameObject); //Destroy this object
         Instantiate(PlayerDeathParticle, new Vector2(transform.position.x, transform.position.y), Quaternion.identity); //play particle effect
-        //Game over
+        Destroy(gameObject);
     }
 }

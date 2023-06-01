@@ -30,47 +30,8 @@ EditorBuildSettings:
     path: Assets/Scenes/lvl 1/Level-1-7.unity
     guid: 5fb0153ebbbc7fd4c9009e1dace1ac52
   - enabled: 1
-    path: Assets/Scenes/lvl 2/Level-2-1.unity
-    guid: f08fd8cd878d9bd428718c3484489756
-  - enabled: 1
-    path: Assets/Scenes/lvl 2/Level-2-2.unity
-    guid: 46f80c7b0326ee148bbc92607e441bdc
-  - enabled: 1
-    path: Assets/Scenes/lvl 2/Level-2-3.unity
-    guid: 43bbe14c16befde43b1648cecf077664
-  - enabled: 1
-    path: Assets/Scenes/lvl 2/Level-2-4.unity
-    guid: e778b6efcb4a910429e09368d7e92950
-  - enabled: 1
-    path: Assets/Scenes/lvl 2/Level-2-5.unity
-    guid: 092a4650adb6b8642ba855013dc4cc3d
-  - enabled: 1
-    path: Assets/Scenes/lvl 2/Level-2-6.unity
-    guid: 1cbfb35b56db9ba41bcb678f9fbadc7e
-  - enabled: 1
     path: Assets/Scenes/Stand-in Game finished.unity
     guid: e2b02d0c4556f0f4f8ac955852292c34
-  - enabled: 0
-    path: Assets/Scenes/lvl 2/speedBoss.unity
-    guid: 7f44f129e501e1c48b053ff3039caad9
-  - enabled: 0
-    path: Assets/Scenes/lvl 3/Level-3-1.unity
-    guid: 2e18f5d2d7082ef4e988431a63311f00
-  - enabled: 0
-    path: Assets/Scenes/lvl 3/Level-3-2.unity
-    guid: 8e43ba55bdb9442479387872f8bbbcd3
-  - enabled: 0
-    path: Assets/Scenes/lvl 3/Level-3-3.unity
-    guid: c2acd75a676d45544b7fae896294a08a
-  - enabled: 0
-    path: Assets/Scenes/lvl 3/Level-3-4.unity
-    guid: 5bee9f7a78eb6164cabeaab36cc102cc
-  - enabled: 0
-    path: Assets/Scenes/lvl 3/Level-3-5.unity
-    guid: 0aa2a23ea11faad4f95cc36ba1a9e3f9
-  - enabled: 0
-    path: Assets/Scenes/lvl 3/Level-3-6.unity
-    guid: 1267dac611711734ead780c5d74b802c
   - enabled: 1
     path: Assets/Scenes/merchant/Merchant_Room.unity
     guid: 89d1898fc02bff6459b8888ca47b7df1
@@ -80,4 +41,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/merchant/Merchant_Room_noUPGRADE.unity
     guid: 3472ebc1aa0c5b64f8e700c62b483a10
+  - enabled: 1
+    path: Assets/Scenes/merchant/EmptyROOM.unity
+    guid: b21ce5a65a70ebf489e66567aa87c39a
+  - enabled: 1
+    path: Assets/Scenes/HelpScreen.unity
+    guid: 99d9a5ebc1e4e63499451a508dd8e331
   m_configObjects: {}

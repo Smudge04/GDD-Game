@@ -100,7 +100,7 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
             case 1:
                 Debug.Log("HealthPickup");
                 VariableStatManager.instance.AddHealth();
-                UpgradeImages[VariableStatManager.instance.Counter--].SetActive(true); //Display and move this upgrade
+                UpgradeImages[0].SetActive(true); 
                 UpgradeDisplay.instance.ShowCard(counter);
                 counter++;
                 break;
@@ -108,7 +108,7 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
             case 2:
                 Debug.Log("SpeedPickup");
                 VariableStatManager.instance.FasterMovement();
-                 //Display and move this upgrade
+                UpgradeImages[1].SetActive(true);
                 UpgradeDisplay.instance.ShowCard(counter);
                 counter++;
                 break;
@@ -116,7 +116,7 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
             case 3:
                 Debug.Log("FasterFireRate");
                 VariableStatManager.instance.FireRateUp();
-                 //Display and move this upgrade
+                UpgradeImages[2].SetActive(true);
                 UpgradeDisplay.instance.ShowCard(counter);
                 counter++;
                 break;
@@ -124,14 +124,14 @@ public class PickACard : MonoBehaviour //NS ALL BAR LINES 32-34
             case 4:
                 Debug.Log("Shotgun Upgrade");
                 VariableStatManager.instance.Shotgun();
-                 //Display and move this upgrade
+                UpgradeImages[3].SetActive(true);
                 UpgradeDisplay.instance.ShowCard(counter);
                 counter++;
                 break;
 
             case 5:
                 Debug.Log("Explosive Bullet");
-                 //Display and move this upgrade
+                UpgradeImages[4].SetActive(true);
                 UpgradeDisplay.instance.ShowCard(counter);
                 counter++;
                 break;

@@ -3130,7 +3130,7 @@ GameObject:
   - component: {fileID: 1410920956}
   m_Layer: 0
   m_Name: Room Enemies
-  m_TagString: Untagged
+  m_TagString: RoomEnemies
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

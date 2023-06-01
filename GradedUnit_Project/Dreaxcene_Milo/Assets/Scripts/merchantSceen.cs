@@ -8,5 +8,6 @@ public class merchantSceen : MonoBehaviour
     public void loadMerchant()
     {
         SceneManager.LoadScene("merchant");
+        ShowCanvas.instance.CanShow = false;
     }
 }

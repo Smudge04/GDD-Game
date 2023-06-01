@@ -8,7 +8,7 @@ public class DoorBackScript : MonoBehaviour
     {
         if(collision.tag == "Player")
         {
-            SceneChange.instance.PreviousScene();
+            SceneChange.instance.EmptyRoom();           
         }
     }
 }

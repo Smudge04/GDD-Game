@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 BottomLeftLimit; //Variable to store the position of the Bottom Left Limit
 
     [Header("Dashing")]
-    private bool canDash = true; //Variable to check if player can dash
+    public bool canDash = true; //Variable to check if player can dash
     private float dashingTime; //Variable to store how long the dash lasts
     private float TimeBtwDash; //Variable to store the time between each dash
 
@@ -88,9 +88,11 @@ public class PlayerMovement : MonoBehaviour
 
         moveSpeed *= 2; //Move speed is increased to the number set within dash speed variable
 
+        GetComponent<BoxCollider2D>().enabled = false; //turns off collider
+
         yield return new WaitForSeconds(dashingTime); //Waits for length of dash
         moveSpeed = SavedSpeed; //Returns move speed to original speed
-        yield return new WaitForSeconds(TimeBtwDash); //Waits for length of time between dash
-        canDash = true; //Player can now dash again
+        GetComponent<BoxCollider2D>().enabled = true;
+        DashCooldownDisplay.instance.isCooldown = true;       
     }
 }
